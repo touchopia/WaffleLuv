@@ -7,52 +7,68 @@
 //
 
 import Foundation
-
 import CoreLocation
 
 class DataStore: NSObject {
     
+    // DataStore is a Singleton
     static let sharedInstance = DataStore()
-    
     private override init() {}
     
-    var currentEvents = [CalendarEvent]()
-    
+    var queue = [CalendarEvent]()
+    var currentEventsArray = [CalendarEvent]()
     var instaPhotos = [InstaPhoto]()
-
+    
     //MARK: - Events Functions
     
-    func numberOFEvents() {
+    func addEvent(event: CalendarEvent) {
+        if event.location.isEmpty {
+            return
+        }
         
-        print("Number of events in datastore \(currentEvents.count)")
-    }
-    
-    func geocodeLocations()  {
-        
-        // print("Geocoding location")
-        
-        for event in currentEvents {
+        if event.startDate.isToday() && !containedInArray(event) {
             
-            geocoding(event.location)  {
-                
-                (latitude: Double, longitude: Double) in
-                
-                let lat: Double = latitude
-                
-                event.latitiude = lat
-
-                let long: Double = longitude
-                
-                event.longitude = long
-                
-                NSNotificationCenter.defaultCenter().postNotificationName(kNotificationEventGeocode, object: nil) 
-               //  print(event.location)
-            }
+            // Add to temporary queue
+            self.queue.append(event)
+            
+            // Add Lat/Long
+            self.geocodeLocation(event)
         }
     }
     
-    func geocoding(location: String, completion: (Double, Double) -> ()) {
+    func containedInArray(event: CalendarEvent) -> Bool {
+        for e in currentEventsArray {
+            if event.location == e.location && event.startDate == e.startDate {
+                return true
+            }
+        }
+        return false
+    }
+    
+    func numberOfEvents() -> Int {
+        return self.currentEventsArray.count
+    }
+    
+    func geocodeLocation(event: CalendarEvent)  {
         
+        geocode(event.location)  {
+            (latitude: Double, longitude: Double) in
+            // update latitude and longitude
+            event.latitiude = latitude
+            event.longitude = longitude
+            
+            // Append to final array
+            self.currentEventsArray.append(event)
+            
+            if self.currentEventsArray.count == self.queue.count {
+                NSNotificationCenter.defaultCenter().postNotificationName("TRUCKS_FOUND", object: nil)
+            }
+            
+            print("\n\n\(event.truckName)\n\(event.location)\n\(event.startDate.toShortTimeString())-\(event.endDate.toShortTimeString())\n\(event.latitiude),\(event.longitude)")
+        }
+    }
+    
+    func geocode(location: String, completion: (Double, Double) -> ()) {
         CLGeocoder().geocodeAddressString(location) { (placemarks, error) in
             if placemarks?.count > 0 {
                 let placemark = placemarks?[0]
@@ -62,6 +78,4 @@ class DataStore: NSObject {
             }
         }
     }
-
-    
 }

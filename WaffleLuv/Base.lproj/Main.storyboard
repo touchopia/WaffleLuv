@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="10116" systemVersion="15E65" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="BYZ-38-t0r">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="10116" systemVersion="15F18b" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="BYZ-38-t0r">
     <dependencies>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="10085"/>
         <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
@@ -7,11 +7,6 @@
     </dependencies>
     <customFonts key="customFonts">
         <mutableArray key="ThirstyScriptRegular.otf">
-            <string>ThirstyScriptRegular</string>
-            <string>ThirstyScriptRegular</string>
-            <string>ThirstyScriptRegular</string>
-            <string>ThirstyScriptRegular</string>
-            <string>ThirstyScriptRegular</string>
             <string>ThirstyScriptRegular</string>
             <string>ThirstyScriptRegular</string>
             <string>ThirstyScriptRegular</string>
@@ -51,7 +46,7 @@
                     <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="static" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="28" sectionFooterHeight="28" id="t71-MC-jGd">
                         <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <color key="backgroundColor" red="0.2571891555846153" green="0.2571891555846153" blue="0.2571891555846153" alpha="1" colorSpace="calibratedRGB"/>
+                        <color key="backgroundColor" red="0.21259780943076922" green="0.21259780943076922" blue="0.21259780943076922" alpha="1" colorSpace="calibratedRGB"/>
                         <color key="sectionIndexBackgroundColor" red="0.14412825814871788" green="0.14412825814871788" blue="0.14412825814871788" alpha="1" colorSpace="calibratedRGB"/>
                         <sections>
                             <tableViewSection id="RgL-hz-KbE">
@@ -63,10 +58,10 @@
                                             <rect key="frame" x="0.0" y="0.0" width="600" height="43.5"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
-                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="WAFFLE L❤️VE" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Jrp-Cu-16a">
-                                                    <rect key="frame" x="4" y="5" width="207" height="33"/>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="WAFFLE L❤️VE  " textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Jrp-Cu-16a">
+                                                    <rect key="frame" x="4" y="5" width="236" height="33"/>
                                                     <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
-                                                    <fontDescription key="fontDescription" name="ThirstyScriptRegular" family="Thirsty Script" pointSize="26"/>
+                                                    <fontDescription key="fontDescription" name="Chalkduster" family="Chalkduster" pointSize="26"/>
                                                     <color key="textColor" red="0.99948710203170776" green="0.079100988805294037" blue="0.0037976487074047327" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
@@ -92,8 +87,8 @@
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Menu Items" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="dOU-F5-VDe">
-                                                    <rect key="frame" x="30" y="11" width="87" height="21"/>
-                                                    <fontDescription key="fontDescription" name="ThirstyScriptRegular" family="Thirsty Script" pointSize="17"/>
+                                                    <rect key="frame" x="30" y="11" width="112.5" height="21"/>
+                                                    <fontDescription key="fontDescription" name="Chalkduster" family="Chalkduster" pointSize="17"/>
                                                     <color key="textColor" red="0.16520309406390399" green="1" blue="0.57579053348500098" alpha="1" colorSpace="calibratedRGB"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
@@ -117,8 +112,8 @@
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Locations" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="qI0-Q0-P2R">
-                                                    <rect key="frame" x="30" y="11" width="69.5" height="21"/>
-                                                    <fontDescription key="fontDescription" name="ThirstyScriptRegular" family="Thirsty Script" pointSize="17"/>
+                                                    <rect key="frame" x="30" y="11" width="92.5" height="21"/>
+                                                    <fontDescription key="fontDescription" name="Chalkduster" family="Chalkduster" pointSize="17"/>
                                                     <color key="textColor" red="0.0" green="0.95901442307692308" blue="0.95901442307692308" alpha="1" colorSpace="calibratedRGB"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
@@ -142,8 +137,8 @@
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Our Story" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Kfk-XZ-BgO">
-                                                    <rect key="frame" x="30" y="11" width="71.5" height="21"/>
-                                                    <fontDescription key="fontDescription" name="ThirstyScriptRegular" family="Thirsty Script" pointSize="17"/>
+                                                    <rect key="frame" x="30" y="11" width="90" height="21"/>
+                                                    <fontDescription key="fontDescription" name="Chalkduster" family="Chalkduster" pointSize="17"/>
                                                     <color key="textColor" red="0.98866483276690054" green="0.99266826923076923" blue="0.051121510984195387" alpha="1" colorSpace="calibratedRGB"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
@@ -167,8 +162,8 @@
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Instagram Feed " textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="1EP-BS-uV8">
-                                                    <rect key="frame" x="30" y="11" width="119" height="21"/>
-                                                    <fontDescription key="fontDescription" name="ThirstyScriptRegular" family="Thirsty Script" pointSize="17"/>
+                                                    <rect key="frame" x="30" y="11" width="163.5" height="21"/>
+                                                    <fontDescription key="fontDescription" name="Chalkduster" family="Chalkduster" pointSize="17"/>
                                                     <color key="textColor" red="0.93916218691825393" green="0.40514360073193534" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
@@ -197,13 +192,13 @@
                                             <rect key="frame" x="0.0" y="0.0" width="600" height="363.5"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
-                                                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="WaffleLoveMain" translatesAutoresizingMaskIntoConstraints="NO" id="yDW-9S-MCB">
-                                                    <rect key="frame" x="0.0" y="0.0" width="600" height="363.5"/>
+                                                <imageView userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="WaffleLoveMain" translatesAutoresizingMaskIntoConstraints="NO" id="yDW-9S-MCB">
+                                                    <rect key="frame" x="90" y="0.0" width="420" height="363.5"/>
                                                 </imageView>
                                             </subviews>
                                             <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                             <constraints>
-                                                <constraint firstItem="yDW-9S-MCB" firstAttribute="width" secondItem="zKd-oK-oHm" secondAttribute="width" id="1dH-n2-nq3"/>
+                                                <constraint firstItem="yDW-9S-MCB" firstAttribute="width" secondItem="zKd-oK-oHm" secondAttribute="width" multiplier="0.7" id="1dH-n2-nq3"/>
                                                 <constraint firstItem="yDW-9S-MCB" firstAttribute="height" secondItem="zKd-oK-oHm" secondAttribute="height" id="8We-tR-GjV"/>
                                                 <constraint firstItem="yDW-9S-MCB" firstAttribute="centerY" secondItem="zKd-oK-oHm" secondAttribute="centerY" id="s7E-gK-pSs"/>
                                                 <constraint firstItem="yDW-9S-MCB" firstAttribute="centerX" secondItem="zKd-oK-oHm" secondAttribute="centerX" id="uy6-9A-7xq"/>
@@ -225,7 +220,7 @@
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="exA-PO-Hza" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1093" y="349"/>
+            <point key="canvasLocation" x="1096" y="349"/>
         </scene>
         <!--Insta Photos Collection View Controller-->
         <scene sceneID="Ucd-Kz-O9F">
@@ -342,8 +337,8 @@
                                                     <nil key="highlightedColor"/>
                                                 </label>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Description" lineBreakMode="wordWrap" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="eeZ-Aj-SAc">
-                                                    <rect key="frame" x="250" y="35" width="330" height="20.5"/>
-                                                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                    <rect key="frame" x="250" y="35" width="330" height="21.5"/>
+                                                    <fontDescription key="fontDescription" name="Chalkduster" family="Chalkduster" pointSize="17"/>
                                                     <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
@@ -626,10 +621,11 @@
                                 </connections>
                             </tableView>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="SPECIALTY WAFFLES" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="EKa-38-CJk">
-                                <rect key="frame" x="229" y="86" width="141.5" height="16"/>
-                                <fontDescription key="fontDescription" type="system" weight="heavy" pointSize="13"/>
+                                <rect key="frame" x="244" y="86" width="112.5" height="14.5"/>
+                                <fontDescription key="fontDescription" style="UICTFontTextStyleCaption1"/>
                                 <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="calibratedRGB"/>
                                 <nil key="highlightedColor"/>
+                                <color key="shadowColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                             </label>
                         </subviews>
                         <color key="backgroundColor" red="0.15282451923076923" green="0.15282451923076923" blue="0.15282451923076923" alpha="1" colorSpace="calibratedRGB"/>
@@ -760,7 +756,7 @@
                         <barButtonItem key="leftBarButtonItem" image="menu" id="0ue-tm-gfF"/>
                     </navigationItem>
                     <connections>
-                        <outlet property="locationsMap" destination="cwL-0k-vz3" id="YVl-Nu-sBf"/>
+                        <outlet property="mapView" destination="cwL-0k-vz3" id="V66-bd-DXA"/>
                         <outlet property="navButton" destination="0ue-tm-gfF" id="kWp-U0-89I"/>
                     </connections>
                 </viewController>
@@ -810,10 +806,10 @@
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="dfX-1S-hit">
-                                                    <rect key="frame" x="60" y="5" width="480" height="147"/>
+                                                    <rect key="frame" x="60" y="5" width="480" height="168"/>
                                                     <subviews>
-                                                        <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="AdamTerry&amp;Son" translatesAutoresizingMaskIntoConstraints="NO" id="ei0-IL-Pom">
-                                                            <rect key="frame" x="0.0" y="0.0" width="480" height="147"/>
+                                                        <imageView userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="AdamTerry&amp;Son" translatesAutoresizingMaskIntoConstraints="NO" id="ei0-IL-Pom">
+                                                            <rect key="frame" x="0.0" y="0.0" width="480" height="168"/>
                                                         </imageView>
                                                     </subviews>
                                                     <color key="backgroundColor" red="0.93916218689999997" green="0.4051436007" blue="1" alpha="1" colorSpace="calibratedRGB"/>
@@ -824,13 +820,13 @@
                                                         <constraint firstItem="ei0-IL-Pom" firstAttribute="centerX" secondItem="dfX-1S-hit" secondAttribute="centerX" id="jte-fj-FEs"/>
                                                     </constraints>
                                                 </view>
-                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" textAlignment="natural" lineBreakMode="wordWrap" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="S0l-Ij-e7E">
-                                                    <rect key="frame" x="30" y="162" width="540" height="248.5"/>
-                                                    <mutableString key="text">OUR STORY
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" textAlignment="natural" lineBreakMode="wordWrap" numberOfLines="0" baselineAdjustment="alignBaselines" minimumFontSize="11" translatesAutoresizingMaskIntoConstraints="NO" id="S0l-Ij-e7E">
+                                                    <rect key="frame" x="30" y="178" width="540" height="237"/>
+                                                    <string key="text">OUR STORY
 This Instagram post from November 2013 posted by Melissa Terry describes pretty well our beginnings: "They say when one door closes, another door opens. It's more like this: when one door closes, another door exists. &amp; it's probably boarded shut &amp; has like 12 different locks on it &amp; the only handle is on the other side of the door. But if you can get all that crap off, and ask really nicely, someone on the other side might twist that knob for you.
 
-"Two years ago today, Adam was working as a banker. He hated it. We were living in a 1 bedroom apartment with our 3 boys saving up for a home when he got fired. Over the next 7 months, we used our savings to pay for groceries and bills while Adam worked his heart out doing concrete jobs and applying for every open position imaginable. I would look at him and smile and say, 'Everything's gonna work out,' &amp; hope he wouldn't be able to tell how scared I was. At times like these, the same phrase in a song would start to play in my head: 'There is hope smiling brightly before you,' &amp; it was enough. I could put the smile back on and keep going. </mutableString>
-                                                    <fontDescription key="fontDescription" type="system" pointSize="13"/>
+"Two years ago today, Adam was working as a banker. He hated it. We were living in a 1 bedroom apartment with our 3 boys saving up for a home when he got fired. Over the next 7 months, we used our savings to pay for groceries and bills while Adam worked his heart out doing concrete jobs and applying for every open position imaginable. I would look at him and smile and say, 'Everything's gonna work out,' &amp; hope he wouldn't be able to tell how scared I was. At times like these, the same phrase in a song would start to play in my head: 'There is hope smiling brightly before you,' &amp; it was enough. I could put the smile back on and keep going. </string>
+                                                    <fontDescription key="fontDescription" type="system" pointSize="16"/>
                                                     <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
@@ -838,13 +834,20 @@ This Instagram post from November 2013 posted by Melissa Terry describes pretty 
                                             <color key="backgroundColor" red="0.16936864276410246" green="0.16936864276410246" blue="0.16936864276410246" alpha="1" colorSpace="calibratedRGB"/>
                                             <constraints>
                                                 <constraint firstItem="dfX-1S-hit" firstAttribute="width" secondItem="WsL-IK-eek" secondAttribute="width" multiplier="0.8" id="ORN-Fl-YFe"/>
+                                                <constraint firstAttribute="bottom" secondItem="S0l-Ij-e7E" secondAttribute="bottom" constant="5" id="dRG-HZ-dC0"/>
                                                 <constraint firstItem="S0l-Ij-e7E" firstAttribute="width" secondItem="WsL-IK-eek" secondAttribute="width" multiplier="0.9" id="fbo-DZ-lEc"/>
                                                 <constraint firstItem="dfX-1S-hit" firstAttribute="height" secondItem="WsL-IK-eek" secondAttribute="height" multiplier="0.35" id="o46-H9-a9S"/>
                                                 <constraint firstItem="dfX-1S-hit" firstAttribute="top" secondItem="WsL-IK-eek" secondAttribute="top" constant="5" id="o5b-cN-Qgk"/>
                                                 <constraint firstItem="S0l-Ij-e7E" firstAttribute="centerX" secondItem="WsL-IK-eek" secondAttribute="centerX" id="oWb-Dd-GNt"/>
                                                 <constraint firstItem="dfX-1S-hit" firstAttribute="centerX" secondItem="WsL-IK-eek" secondAttribute="centerX" id="pC9-to-ILb"/>
-                                                <constraint firstItem="S0l-Ij-e7E" firstAttribute="top" secondItem="ei0-IL-Pom" secondAttribute="bottom" constant="10" id="sBH-Oz-sMN"/>
+                                                <constraint firstItem="S0l-Ij-e7E" firstAttribute="top" secondItem="ei0-IL-Pom" secondAttribute="bottom" constant="5" id="sBH-Oz-sMN"/>
+                                                <constraint firstItem="dfX-1S-hit" firstAttribute="height" secondItem="WsL-IK-eek" secondAttribute="height" multiplier="0.4" id="uee-A1-wdr"/>
                                             </constraints>
+                                            <variation key="default">
+                                                <mask key="constraints">
+                                                    <exclude reference="o46-H9-a9S"/>
+                                                </mask>
+                                            </variation>
                                         </tableViewCellContentView>
                                     </tableViewCell>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="none" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="SecondCell" rowHeight="45" id="Faq-ws-Uhi">
@@ -855,9 +858,9 @@ This Instagram post from November 2013 posted by Melissa Terry describes pretty 
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="97V-fy-Rz3">
-                                                    <rect key="frame" x="60" y="13" width="480" height="18"/>
+                                                    <rect key="frame" x="60" y="9" width="480" height="18"/>
                                                     <subviews>
-                                                        <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="AdamTerryAndKids" translatesAutoresizingMaskIntoConstraints="NO" id="808-LD-H5k">
+                                                        <imageView userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="AdamTerryAndKids" translatesAutoresizingMaskIntoConstraints="NO" id="808-LD-H5k">
                                                             <rect key="frame" x="0.0" y="0.0" width="480" height="18"/>
                                                         </imageView>
                                                     </subviews>
@@ -870,9 +873,9 @@ This Instagram post from November 2013 posted by Melissa Terry describes pretty 
                                                     </constraints>
                                                 </view>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" textAlignment="natural" lineBreakMode="wordWrap" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="kTe-iH-THl">
-                                                    <rect key="frame" x="30" y="36" width="540" height="155.5"/>
-                                                    <mutableString key="text">"Adam had always wanted to own his own restaurant, &amp; I always discouraged the idea. It seemed like there was too much to lose. But when a local restaurant went up for sale, and Adam said he'd like to make an offer on it, all my reasons to be scared were gone. So I smiled &amp; said, 'Okay.' He pitched the owner his best proposal, and the man selling the restaurant pretty much laughed him to scorn. (And really, we can't blame him.) After laying out the plan of how he was going to resurrect that business, he realized that was exactly what he was going to do, but for himself instead of someone else. So he got to work. He turned an old insurance office into a kitchen, and a $1,300 vintage step van into a food truck. With the help of our families, we painted, and plumbed and perfected recipes and set a date to open to the public. </mutableString>
-                                                    <fontDescription key="fontDescription" type="system" pointSize="13"/>
+                                                    <rect key="frame" x="30" y="32" width="540" height="8"/>
+                                                    <string key="text">"Adam had always wanted to own his own restaurant, &amp; I always discouraged the idea. It seemed like there was too much to lose. But when a local restaurant went up for sale, and Adam said he'd like to make an offer on it, all my reasons to be scared were gone. So I smiled &amp; said, 'Okay.' He pitched the owner his best proposal, and the man selling the restaurant pretty much laughed him to scorn. (And really, we can't blame him.) After laying out the plan of how he was going to resurrect that business, he realized that was exactly what he was going to do, but for himself instead of someone else. So he got to work. He turned an old insurance office into a kitchen, and a $1,300 vintage step van into a food truck. With the help of our families, we painted, and plumbed and perfected recipes and set a date to open to the public. </string>
+                                                    <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                                     <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
@@ -883,7 +886,8 @@ This Instagram post from November 2013 posted by Melissa Terry describes pretty 
                                                 <constraint firstItem="97V-fy-Rz3" firstAttribute="width" secondItem="8mf-a5-odD" secondAttribute="width" multiplier="0.8" id="J7M-Ig-b9l"/>
                                                 <constraint firstItem="kTe-iH-THl" firstAttribute="centerX" secondItem="8mf-a5-odD" secondAttribute="centerX" id="QUK-Tn-hq0"/>
                                                 <constraint firstItem="kTe-iH-THl" firstAttribute="width" secondItem="8mf-a5-odD" secondAttribute="width" multiplier="0.9" id="aXh-lg-LGU"/>
-                                                <constraint firstItem="97V-fy-Rz3" firstAttribute="top" secondItem="8mf-a5-odD" secondAttribute="topMargin" constant="5" id="nOO-jB-ifo"/>
+                                                <constraint firstItem="97V-fy-Rz3" firstAttribute="top" secondItem="8mf-a5-odD" secondAttribute="topMargin" constant="1" id="nOO-jB-ifo"/>
+                                                <constraint firstAttribute="bottom" relation="greaterThanOrEqual" secondItem="kTe-iH-THl" secondAttribute="bottom" constant="5" id="pYO-Z1-8sr"/>
                                                 <constraint firstItem="97V-fy-Rz3" firstAttribute="centerX" secondItem="8mf-a5-odD" secondAttribute="centerX" id="swv-1w-7nl"/>
                                                 <constraint firstItem="97V-fy-Rz3" firstAttribute="height" secondItem="8mf-a5-odD" secondAttribute="height" multiplier="0.4" id="vN9-pU-S9b"/>
                                             </constraints>
@@ -896,15 +900,15 @@ This Instagram post from November 2013 posted by Melissa Terry describes pretty 
                                             <rect key="frame" x="0.0" y="0.0" width="600" height="0.0"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
-                                                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="WaffleLovePaint" translatesAutoresizingMaskIntoConstraints="NO" id="Xcw-bX-1vR">
-                                                    <rect key="frame" x="60" y="13" width="480" height="0.0"/>
+                                                <imageView userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="WaffleLovePaint" translatesAutoresizingMaskIntoConstraints="NO" id="Xcw-bX-1vR">
+                                                    <rect key="frame" x="60" y="0.0" width="480" height="0.0"/>
                                                 </imageView>
-                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" textAlignment="natural" lineBreakMode="wordWrap" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="byo-i8-POy">
-                                                    <rect key="frame" x="30" y="18" width="540" height="109"/>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" textAlignment="natural" lineBreakMode="wordWrap" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="byo-i8-POy">
+                                                    <rect key="frame" x="30" y="5" width="540" height="109"/>
                                                     <string key="text">"We were exhausted, and had given it EVERYTHING, but at the end of the day, we just had to hope that people would come. ...and this is where I get emotional.
 
 "You came. You came in 100 degree weather. You came when it was six below. You came and took pictures, and told your friends to come. You offered your driveways to us, and some of you even wrote to The City Councils for us. When our transmission broke down, when our engine was blown, when we were stuck in the snow, you helped us. </string>
-                                                    <fontDescription key="fontDescription" type="system" pointSize="13"/>
+                                                    <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                                     <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
@@ -913,12 +917,22 @@ This Instagram post from November 2013 posted by Melissa Terry describes pretty 
                                             <constraints>
                                                 <constraint firstItem="byo-i8-POy" firstAttribute="top" secondItem="Xcw-bX-1vR" secondAttribute="bottom" constant="5" id="44c-G6-rnP"/>
                                                 <constraint firstItem="byo-i8-POy" firstAttribute="width" secondItem="TJv-pY-NSG" secondAttribute="width" multiplier="0.9" id="5vF-Ru-RHn"/>
+                                                <constraint firstAttribute="bottom" relation="greaterThanOrEqual" secondItem="byo-i8-POy" secondAttribute="bottom" constant="5" id="6eR-8n-ha5"/>
+                                                <constraint firstItem="Xcw-bX-1vR" firstAttribute="top" secondItem="TJv-pY-NSG" secondAttribute="top" id="TuD-zj-EKT"/>
                                                 <constraint firstItem="Xcw-bX-1vR" firstAttribute="centerX" secondItem="TJv-pY-NSG" secondAttribute="centerX" id="Xec-hb-275"/>
-                                                <constraint firstItem="Xcw-bX-1vR" firstAttribute="top" secondItem="TJv-pY-NSG" secondAttribute="topMargin" constant="5" id="gZ9-IX-EC4"/>
-                                                <constraint firstItem="Xcw-bX-1vR" firstAttribute="height" secondItem="TJv-pY-NSG" secondAttribute="height" multiplier="0.4" id="nbW-AC-feV"/>
+                                                <constraint firstItem="Xcw-bX-1vR" firstAttribute="top" secondItem="TJv-pY-NSG" secondAttribute="topMargin" constant="1" id="gZ9-IX-EC4"/>
+                                                <constraint firstItem="Xcw-bX-1vR" firstAttribute="height" secondItem="TJv-pY-NSG" secondAttribute="height" multiplier="0.48" id="nbW-AC-feV"/>
                                                 <constraint firstItem="Xcw-bX-1vR" firstAttribute="width" secondItem="TJv-pY-NSG" secondAttribute="width" multiplier="0.8" id="rmO-LP-O9m"/>
                                                 <constraint firstItem="byo-i8-POy" firstAttribute="centerX" secondItem="TJv-pY-NSG" secondAttribute="centerX" id="xt5-2I-kih"/>
+                                                <constraint firstItem="Xcw-bX-1vR" firstAttribute="centerY" secondItem="TJv-pY-NSG" secondAttribute="centerY" id="yG8-wx-Cb6"/>
                                             </constraints>
+                                            <variation key="default">
+                                                <mask key="constraints">
+                                                    <exclude reference="6eR-8n-ha5"/>
+                                                    <exclude reference="gZ9-IX-EC4"/>
+                                                    <exclude reference="yG8-wx-Cb6"/>
+                                                </mask>
+                                            </variation>
                                         </tableViewCellContentView>
                                     </tableViewCell>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="none" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="FourthCell" rowHeight="368" id="VvF-MR-oPD">
@@ -928,32 +942,32 @@ This Instagram post from November 2013 posted by Melissa Terry describes pretty 
                                             <rect key="frame" x="0.0" y="0.0" width="600" height="368"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
-                                                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="WaffleLoveMission" translatesAutoresizingMaskIntoConstraints="NO" id="15M-XG-gwq">
-                                                    <rect key="frame" x="60" y="3" width="480" height="129"/>
+                                                <imageView userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="WaffleLoveMission" translatesAutoresizingMaskIntoConstraints="NO" id="15M-XG-gwq">
+                                                    <rect key="frame" x="60" y="8" width="480" height="129"/>
                                                 </imageView>
-                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" textAlignment="natural" lineBreakMode="wordWrap" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="an5-Kx-B2f">
-                                                    <rect key="frame" x="30" y="136.5" width="540" height="124.5"/>
-                                                    <mutableString key="text">"I don't know most of you, but I am overwhelmed with gratitude for you. I wish I could personally thank each one of you. I can't think about it long before crying because, you turned that knob for us. Thank you thank you thank you."
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" textAlignment="natural" lineBreakMode="wordWrap" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="an5-Kx-B2f">
+                                                    <rect key="frame" x="30" y="141.5" width="540" height="124.5"/>
+                                                    <string key="text">"I don't know most of you, but I am overwhelmed with gratitude for you. I wish I could personally thank each one of you. I can't think about it long before crying because, you turned that knob for us. Thank you thank you thank you."
 
-Three years after starting out, we continue to operate on principals of faith, hard work, and community. We continue to be blown away by the kindness, enthusiasm, and goodness of the people we get to serve everyday. Love has always been, and will always be the main ingredient in Waffle Love. </mutableString>
-                                                    <fontDescription key="fontDescription" type="system" pointSize="13"/>
+Three years after starting out, we continue to operate on principals of faith, hard work, and community. We continue to be blown away by the kindness, enthusiasm, and goodness of the people we get to serve everyday. Love has always been, and will always be the main ingredient in Waffle Love. </string>
+                                                    <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                                     <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
-                                                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="WaffleLoveWaffles" translatesAutoresizingMaskIntoConstraints="NO" id="AXh-W2-wIJ">
-                                                    <rect key="frame" x="60" y="253.5" width="480" height="110.5"/>
+                                                <imageView userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="WaffleLoveWaffles" translatesAutoresizingMaskIntoConstraints="NO" id="AXh-W2-wIJ">
+                                                    <rect key="frame" x="60" y="256.5" width="480" height="110.5"/>
                                                 </imageView>
                                             </subviews>
                                             <color key="backgroundColor" red="0.1693686428" green="0.1693686428" blue="0.1693686428" alpha="1" colorSpace="calibratedRGB"/>
                                             <constraints>
-                                                <constraint firstAttribute="topMargin" secondItem="15M-XG-gwq" secondAttribute="top" constant="5" id="1Y7-4S-KfQ"/>
+                                                <constraint firstAttribute="topMargin" secondItem="15M-XG-gwq" secondAttribute="top" id="1Y7-4S-KfQ"/>
                                                 <constraint firstItem="an5-Kx-B2f" firstAttribute="top" secondItem="15M-XG-gwq" secondAttribute="bottom" constant="5" id="2LF-gJ-kz0"/>
                                                 <constraint firstItem="an5-Kx-B2f" firstAttribute="centerX" secondItem="lRh-q7-bbh" secondAttribute="centerX" id="4Pi-Ja-dSY"/>
                                                 <constraint firstItem="AXh-W2-wIJ" firstAttribute="centerX" secondItem="lRh-q7-bbh" secondAttribute="centerX" id="Nt8-Yl-md5"/>
                                                 <constraint firstItem="an5-Kx-B2f" firstAttribute="width" secondItem="lRh-q7-bbh" secondAttribute="width" multiplier="0.9" id="e7V-hG-kaf"/>
                                                 <constraint firstItem="AXh-W2-wIJ" firstAttribute="height" secondItem="lRh-q7-bbh" secondAttribute="height" multiplier="0.3" id="ebP-Z3-YD0"/>
                                                 <constraint firstItem="15M-XG-gwq" firstAttribute="height" secondItem="lRh-q7-bbh" secondAttribute="height" multiplier="0.35" id="f8D-UK-FMo"/>
-                                                <constraint firstAttribute="bottom" secondItem="AXh-W2-wIJ" secondAttribute="bottom" constant="4" id="qZA-d2-V1J"/>
+                                                <constraint firstAttribute="bottom" secondItem="AXh-W2-wIJ" secondAttribute="bottom" constant="1" id="qZA-d2-V1J"/>
                                                 <constraint firstItem="AXh-W2-wIJ" firstAttribute="width" secondItem="lRh-q7-bbh" secondAttribute="width" multiplier="0.8" id="t54-Zl-lXc"/>
                                                 <constraint firstItem="15M-XG-gwq" firstAttribute="width" secondItem="lRh-q7-bbh" secondAttribute="width" multiplier="0.8" id="vki-sN-jl2"/>
                                                 <constraint firstItem="15M-XG-gwq" firstAttribute="centerX" secondItem="lRh-q7-bbh" secondAttribute="centerX" id="wpf-4n-txf"/>
@@ -984,7 +998,7 @@ Three years after starting out, we continue to operate on principals of faith, h
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="F8F-Dd-xcR" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="3371" y="908"/>
+            <point key="canvasLocation" x="3474" y="940"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="Se3-Tx-nlM">

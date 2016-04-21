@@ -19,10 +19,7 @@ class InstaPhotosCollectionViewController: UICollectionViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-       // self.collectionView!.registerClass(UICollectionViewCell.self, forCellWithReuseIdentifier: reuseIdentifier)
 
-
-        
         if DataStore.sharedInstance.instaPhotos.count <= 19 {
             
             instaApi.fetchInstaPhotos()
@@ -33,7 +30,7 @@ class InstaPhotosCollectionViewController: UICollectionViewController {
         
         if self.revealViewController() != nil {
             menuButton.target = self.revealViewController()
-            menuButton.action = "revealToggle:"
+            menuButton.action = #selector(SWRevealViewController.revealToggle(_:))
             self.view.addGestureRecognizer(self.revealViewController().panGestureRecognizer())
         }
     }

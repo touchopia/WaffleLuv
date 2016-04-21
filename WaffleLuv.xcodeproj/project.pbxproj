@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		5E3CAEA31CBEA52500DE8B90 /* CalendarEvent.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5E3CAEA21CBEA52500DE8B90 /* CalendarEvent.swift */; };
+		5ED76A641CC9071F00E8C10B /* SwiftDate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5ED76A631CC9071F00E8C10B /* SwiftDate.swift */; };
 		CA7B07D11CB2C9A100A473CF /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = CA7B07D01CB2C9A100A473CF /* AppDelegate.swift */; };
 		CA7B07D61CB2C9A100A473CF /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = CA7B07D41CB2C9A100A473CF /* Main.storyboard */; };
 		CA7B07D81CB2C9A100A473CF /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = CA7B07D71CB2C9A100A473CF /* Assets.xcassets */; };
@@ -36,6 +37,7 @@
 
 /* Begin PBXFileReference section */
 		5E3CAEA21CBEA52500DE8B90 /* CalendarEvent.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CalendarEvent.swift; sourceTree = "<group>"; };
+		5ED76A631CC9071F00E8C10B /* SwiftDate.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SwiftDate.swift; sourceTree = "<group>"; };
 		CA7B07CD1CB2C9A100A473CF /* WaffleLuv.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = WaffleLuv.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		CA7B07D01CB2C9A100A473CF /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		CA7B07D51CB2C9A100A473CF /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
@@ -118,6 +120,7 @@
 			children = (
 				CAE88CEE1CB6102600B96FC2 /* WaffleTableViewCell.swift */,
 				CAE58F821CBC9F3A00956EED /* PhotoCollectionViewCell.swift */,
+				CAE58F521CB84A3300956EED /* CustomAnnotation.swift */,
 			);
 			name = Views;
 			sourceTree = "<group>";
@@ -139,6 +142,7 @@
 				CAE88CEC1CB6088A00B96FC2 /* Waffle.swift */,
 				5E3CAEA21CBEA52500DE8B90 /* CalendarEvent.swift */,
 				CAE58F7E1CBC981A00956EED /* InstaPhoto.swift */,
+				5ED76A631CC9071F00E8C10B /* SwiftDate.swift */,
 			);
 			name = Model;
 			sourceTree = "<group>";
@@ -147,7 +151,6 @@
 			isa = PBXGroup;
 			children = (
 				CAE58F871CBEA9D000956EED /* ThirstyScriptRegular.otf */,
-				CAE58F521CB84A3300956EED /* CustomAnnotation.swift */,
 				CAE58F4C1CB6B97300956EED /* MyColors.swift */,
 				CAE88CEA1CB6084100B96FC2 /* Waffles.json */,
 			);
@@ -209,7 +212,7 @@
 				TargetAttributes = {
 					CA7B07CC1CB2C9A100A473CF = {
 						CreatedOnToolsVersion = 7.3;
-						DevelopmentTeam = R99S6E3AYJ;
+						DevelopmentTeam = 86Z976V88Y;
 						SystemCapabilities = {
 							com.apple.Maps.iOS = {
 								enabled = 1;
@@ -257,6 +260,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				CAE88CEF1CB6102600B96FC2 /* WaffleTableViewCell.swift in Sources */,
+				5ED76A641CC9071F00E8C10B /* SwiftDate.swift in Sources */,
 				CAE8A5811CB44C7100B4529F /* WaffleMenuViewController.swift in Sources */,
 				CAEF00B91CC6A4BA00592F87 /* Reachability.swift in Sources */,
 				CAE58F7F1CBC981A00956EED /* InstaPhoto.swift in Sources */,

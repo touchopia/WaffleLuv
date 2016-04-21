@@ -13,10 +13,12 @@ import CoreLocation
 class AppDelegate: UIResponder, UIApplicationDelegate {
 
     var window: UIWindow?
-
+    let calAPI = CalendarAPI()
+    
     func application(application: UIApplication, didFinishLaunchingWithOptions launchOptions: [NSObject: AnyObject]?) -> Bool {
 
-            return true
+        calAPI.fetchCalendars()
+        return true
     }
 
     func applicationWillResignActive(application: UIApplication) {

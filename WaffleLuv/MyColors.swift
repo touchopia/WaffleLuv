@@ -9,8 +9,7 @@
 import Foundation
 
 struct MyColors{
-    
-    
+
     static var getCustomPurpleColor = {
         
         return UIColor(red:0.55, green:0.5 , blue:1.00, alpha:1.0)

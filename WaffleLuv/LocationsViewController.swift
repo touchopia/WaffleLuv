@@ -1,8 +1,8 @@
 //
 //  LocationsViewController.swift
-//  WaffleLuv
+//  SimpleUserLocation
 //
-//  Created by Bronson Dupaix on 4/5/16.
+//  Created by Bronson Dupaix on 4/11/16.
 //  Copyright © 2016 Bronson Dupaix. All rights reserved.
 //
 
@@ -11,273 +11,121 @@ import MapKit
 import CoreLocation
 import WebKit
 
-let kNotificationEventGeocode = "geocodeEvent"
-
-class LocationsViewController: UIViewController,  CLLocationManagerDelegate, MKMapViewDelegate {
-
-    //MARK: - Variables
+class LocationsViewController: UIViewController, CLLocationManagerDelegate, MKMapViewDelegate {
     
     var locationManager = CLLocationManager()
-
-    @IBOutlet weak var navButton: UIBarButtonItem!
-    
-    @IBOutlet weak var locationsMap: MKMapView!
-    
-    let initialLocation = CLLocation(latitude: 40.760779, longitude: -111.891047) 
-    
-    let regionRadius: CLLocationDistance = 800000
-
-    var dateFormatter = NSDateFormatter()
-    
+    var currentLocation = CLLocationCoordinate2D(latitude: 40.760779, longitude: -111.891047)
     var webView = WKWebView()
     
-    var calApi = CalendarAPI()
+    var trucksAreShown = false
     
-    //MARK: - View did functions
-    
-    override func viewWillAppear(animated: Bool) {
-        super.viewWillAppear(animated)
-        
-        print("Map view will appear")
-
-
-    }
-    
+    @IBOutlet weak var mapView: MKMapView!
+    @IBOutlet weak var navButton: UIBarButtonItem!
     
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        print("Map view did load")
+        NSNotificationCenter.defaultCenter().addObserver(self, selector: #selector(addTrucks), name: "TRUCKS_FOUND", object: nil)
         
-        calApi.fetchCalendar()
-        
-        centerInitialLocation(initialLocation)
-        NSNotificationCenter.defaultCenter().addObserver(self, selector: #selector(LocationsViewController.updateMap), name: kNotificationEventGeocode, object: nil)
-        
-        createStorePins()
-
         locationManager.delegate = self
-        
         locationManager.desiredAccuracy = kCLLocationAccuracyBest
-    
+        locationManager.requestWhenInUseAuthorization()
+        
+        self.updateLocationTapped()
+        
+        
         if self.revealViewController() != nil {
             navButton.target = self.revealViewController()
-            navButton.action = "revealToggle:"
+            navButton.action = #selector(SWRevealViewController.revealToggle(_:))
             self.view.addGestureRecognizer(self.revealViewController().panGestureRecognizer())
         }
         
     }
-
-    override func viewDidAppear(animated: Bool) {
-        super.viewDidAppear(animated)
+    
+    override func viewWillAppear(animated: Bool) {
+        super.viewWillAppear(animated)
         
-        // print("viewDidAppear")
-        
-        locationManager.requestWhenInUseAuthorization()
-        
-        locationManager.requestLocation()
-        
-        locationsMap.showsUserLocation = true
-        
-        if DataStore.sharedInstance.currentEvents.count == 0 {
-            
-//            let alert = UIAlertController(title: "There are currently no trucks available", message: "Our Store hours are Monday-Thursday: 8:00 AM ~ 10:00 PM, Friday-Saturday: 8:00 AM ~ 11:00 PM", preferredStyle: .Alert)
-//            
-//            
-            
-            print("No Trucks available")
-            let alert = UIAlertView(title: "There are currently no trucks available", message: "Our Store hours are Monday-Thursday: 8:00 AM ~ 10:00 PM, Friday-Saturday: 8:00 AM ~ 11:00 PM", delegate: nil, cancelButtonTitle: "OK")
-            alert.show()
+        if DataStore.sharedInstance.numberOfEvents() > 0 && trucksAreShown == false {
+            addTrucks()
         }
-
         
-
     }
     
-    
-    func updateMap(location: CLLocation) {
+    func addTrucks() {
         
-        for event in DataStore.sharedInstance.currentEvents {
-            
-            createMKPins(event)
-            
-            locationsMap.setCenterCoordinate(locationsMap.region.center, animated: false)
-            
+        print("addTrucks called")
+        
+        trucksAreShown = true
+        
+        createStorePins()
+        
+        let eventsArray = DataStore.sharedInstance.currentEventsArray
+        
+        for event in eventsArray {
+            let coordinate = CLLocationCoordinate2D(latitude: event.latitiude, longitude: event.longitude)
+            let subTitle = "\(event.startDate.toShortTimeString())-\(event.endDate.toShortTimeString())"
+            createAnnotation(event.location, subTitle: subTitle, coordinate: coordinate)
         }
+        centerMap(self.currentLocation)
     }
     
-    
-    //MARK: - Locations Manager functions and Center map
-    
-    func centerMapOnLocation(location: CLLocation) {
-        let coordinateRegion = MKCoordinateRegionMakeWithDistance(location.coordinate,
-        regionRadius * 0.08, regionRadius * 0.08)
-        locationsMap.setRegion(coordinateRegion, animated: true)
-    }
-    
-    func centerInitialLocation(location: CLLocation) {
-        let coordinateRegion = MKCoordinateRegionMakeWithDistance(location.coordinate,
-                                                                  regionRadius * 2.5, regionRadius * 2.5) 
-        locationsMap.setRegion(coordinateRegion, animated: true)
+    @IBAction func updateLocationTapped() {
+        
+        let status = CLAuthorizationStatus.AuthorizedWhenInUse
+        
+        if status != .Denied {
+            self.mapView.showsUserLocation = false
+            self.locationManager.requestLocation()
+        }
     }
     
     func locationManager(manager: CLLocationManager, didChangeAuthorizationStatus status: CLAuthorizationStatus) {
         
-        
-        print("didChangeAuthStatus")
-        
-        switch(status) {
-        case.NotDetermined: print("I dont know if I have Permission")
-        case.AuthorizedWhenInUse: print("Authorized when in use")
-        case.AuthorizedAlways: print("Always Authorized")
-        case.Denied: print("denied")
-        default: print("other Auth")
-        }
-        
-        if status != .Denied{
-            manager.requestLocation()
-        }
-        
-        print("Did Change Auth Status")
+        self.updateLocationTapped()
     }
     
+    
     func locationManager(manager: CLLocationManager, didUpdateLocations locations: [CLLocation]) {
-
+        
         if locations.count > 0 {
-            
             let location = locations.first
+            print(location?.coordinate.latitude)
+            print(location?.coordinate.longitude)
             
-            self.updateMap(location!)
-            
-            let coordinate = location?.coordinate 
-
-            if let center = coordinate {
-                
-               let region = MKCoordinateRegion(center: center, span: MKCoordinateSpan(latitudeDelta: 0.7, longitudeDelta: 0.7))
-                
-               self.locationsMap.setRegion(region, animated: true)
-                
-                let currentLocation = MKPointAnnotation()
-                
-                currentLocation.coordinate = CLLocationCoordinate2D(latitude: center.latitude, longitude: center.longitude)
-                
-                currentLocation.title = "Your current location"
-
-                self.locationsMap.showsUserLocation = true
-                
-                self.centerMapOnLocation(location!)
-                
-               // print("mapview updated")
-                
-            }
-            
+            // Find the Center Coordinate
+            //if let center = location?.coordinate {
+            centerMap(self.currentLocation)
+            //self.currentLocation = center
+            //}
         }
+        print("location updated")
+    }
+    
+    func centerMap(coordinate: CLLocationCoordinate2D) {
+        let region = MKCoordinateRegion(center: coordinate, span: MKCoordinateSpan(latitudeDelta: 0.5, longitudeDelta: 0.5))
+        self.mapView.setRegion(region, animated: true)
+        self.mapView.showsUserLocation = false
+        print("mapView centered")
     }
     
     func locationManager(manager: CLLocationManager, didFailWithError error: NSError) {
         print(error.localizedDescription)
     }
     
-    
-    
-    func mapView(mapView: MKMapView, didFailToLocateUserWithError error: NSError) {
+    func createAnnotation(title: String, subTitle: String, coordinate: CLLocationCoordinate2D) {
+        let annotation = CustomPointAnnotation()
+        annotation.title = title
+        annotation.subtitle = subTitle
+        annotation.coordinate = coordinate
+        annotation.imageName = "truck"
         
-    }
-    
-    func mapView(mapView: MKMapView, didSelectAnnotationView view: MKAnnotationView) {
-        
-        if let location = view.annotation!.title {
-            
-            if let time = view.annotation!.subtitle {
-                
-                self.directionsToLocation(location!, time: time!)
-            }
-            
-            
+        if self.mapView != nil {
+            self.mapView.addAnnotation(annotation)
         }
     }
     
-    //MARK: - MKPins function
-
-    
-    func createMKPins(event: CalendarEvent) {
-        
-        let truck = CustomPointAnnotation()
-        
-        truck.imageName = "truck" 
-        
-        truck.coordinate = CLLocationCoordinate2D(latitude: event.latitiude, longitude: event.longitude)
-        
-        truck.title = event.location
-        
-        dateFormatter.dateFormat = "hh:mm a"
-        
-        let start = dateFormatter.stringFromDate(event.startDate)
-        let end = dateFormatter.stringFromDate(event.endDate)
-        
-        truck.subtitle = "\(start) - \(end)"
-        
-        locationsMap.addAnnotation(truck)
-
-
-        
-    }
-    
-    func createStorePins() {
-        
-        let midvale = CustomPointAnnotation()
-        
-        let provo = CustomPointAnnotation()
-        
-        let bountiful = CustomPointAnnotation()
-        
-        let gilbert = CustomPointAnnotation()
-        
-        gilbert.coordinate = CLLocationCoordinate2D(latitude: 33.300539, longitude: -111.743183)
-        
-        gilbert.imageName = "store"
-        
-        gilbert.title = "2743 S Market St #104, Gilbert, AZ 85295"
-        
-        gilbert.subtitle = "Gilbert AZ Location"
-        
-        midvale.coordinate = CLLocationCoordinate2D(latitude: 40.623698, longitude: -111.860071)
-        
-        midvale.imageName = "store"
-        
-        midvale.title =  "1142 Fort Union Blvd #M05, Midvale, UT 84047"
-        
-        midvale.subtitle = "Midvale Location"
-        
-        provo.coordinate = CLLocationCoordinate2D(latitude: 40.258434, longitude: -111.674773)
-        
-        provo.imageName = "store"
-        
-        provo.title = "1796 N 950 W St, Provo, UT 84604"
-        
-        provo.subtitle = "Provo Location"
-        
-        bountiful.coordinate = CLLocationCoordinate2D(latitude: 40.891752, longitude: -111.892615)
-        
-        bountiful.imageName = "store"
-        
-        bountiful.title =  "255 North 500 West, Bountiful, UT 84010"
-        
-        bountiful.subtitle = "Bountiful Location"
-        
-        locationsMap.addAnnotation(midvale)
-        
-        locationsMap.addAnnotation(provo)
-        
-        locationsMap.addAnnotation(bountiful)
-        
-        locationsMap.addAnnotation(gilbert)
-        
-        
-    }
-
     func mapView(mapView: MKMapView, viewForAnnotation annotation: MKAnnotation) -> MKAnnotationView? {
-    
+        
         let identifier = "MyPin"
         
         if annotation.isKindOfClass(MKUserLocation) {
@@ -293,78 +141,109 @@ class LocationsViewController: UIViewController,  CLLocationManagerDelegate, MKM
         // Reuse the annotation if possible
         var annotationView = mapView.dequeueReusableAnnotationViewWithIdentifier(identifier)
         
-
+        
         if annotationView == nil
         {
             annotationView = MKAnnotationView(annotation: annotation, reuseIdentifier: "pin")
-            annotationView!.canShowCallout = true
+            annotationView?.canShowCallout = true
             
-                        let truckImage = UIImageView(frame: CGRectMake(0, 0, 30, 30))
-            
-                        truckImage.image = UIImage(named: "store") 
-            
-                        annotationView!.image = truckImage.image
-            
-            annotationView!.rightCalloutAccessoryView = detailButton
-        }
-        else
-        {
-            
-            
-            annotationView!.annotation = annotation
+            let truckImage = UIImageView(frame: CGRectMake(0,0,32,32))
+            truckImage.image = UIImage(named: "store")
+            annotationView?.image = truckImage.image
+            annotationView?.rightCalloutAccessoryView = detailButton
+        } else {
+            annotationView?.annotation = annotation
         }
         
-        let cpa = annotation as? CustomPointAnnotation
-        
-        annotationView!.image = UIImage(named:cpa!.imageName)
+        if let cpa = annotation as? CustomPointAnnotation {
+            annotationView?.image = UIImage(named:cpa.imageName)
+        }
         
         return annotationView
+    }
+    
+    func mapView(mapView: MKMapView, didSelectAnnotationView view: MKAnnotationView) {
+        
+        if let location = view.annotation!.title {
+            if let time = view.annotation!.subtitle {
+                self.directionsToLocation(location!, time: time!)
+            }
+        }
+    }
+    
+    //MARK: - Locations Manager functions and Center map
+    
+    func centerMapOnLocation(location: CLLocation) {
+        let coordinateRegion = MKCoordinateRegion(center: location.coordinate, span: MKCoordinateSpan(latitudeDelta: 0.001, longitudeDelta: 0.001))
+        mapView.setRegion(coordinateRegion, animated: true)
+    }
+    
+    func createStorePins() {
+        
+        let midvale = CustomPointAnnotation()
+        
+        let provo = CustomPointAnnotation()
+        
+        let bountiful = CustomPointAnnotation()
+        
+        let gilbert = CustomPointAnnotation()
+        
+        gilbert.coordinate = CLLocationCoordinate2D(latitude: 33.300539, longitude: -111.743183)
+        gilbert.imageName = "store"
+        gilbert.title = "2743 S Market St #104, Gilbert, AZ 85295"
+        gilbert.subtitle = "Gilbert AZ Location"
+        
+        midvale.coordinate = CLLocationCoordinate2D(latitude: 40.623698, longitude: -111.860071)
+        midvale.imageName = "store"
+        midvale.title =  "1142 Fort Union Blvd #M05, Midvale, UT 84047"
+        midvale.subtitle = "Midvale Location"
+        
+        provo.coordinate = CLLocationCoordinate2D(latitude: 40.258434, longitude: -111.674773)
+        
+        provo.imageName = "store"
+        provo.title = "1796 N 950 W St, Provo, UT 84604"
+        provo.subtitle = "Provo Location"
+        
+        bountiful.coordinate = CLLocationCoordinate2D(latitude: 40.891752, longitude: -111.892615)
+        bountiful.imageName = "store"
+        bountiful.title =  "255 North 500 West, Bountiful, UT 84010"
+        bountiful.subtitle = "Bountiful Location"
+        
+        self.mapView.addAnnotation(midvale)
+        self.mapView.addAnnotation(provo)
+        self.mapView.addAnnotation(bountiful)
+        self.mapView.addAnnotation(gilbert)
     }
     
     //MARK: - Directions Alert View
     
     func directionsToLocation(location: String, time: String ) {
         
-      //  print("Annotation Tapped")
-
-        let alertController = UIAlertController(title: "\(location) (\(time))", message: "Take Me To This Location", preferredStyle: .Alert)
-
+        //  print("Annotation Tapped")
+        
+        let alertController = UIAlertController(title: "\(location)", message: "Take Me To This Location", preferredStyle: .Alert)
+        
         let directionsAction = UIAlertAction(title: "Directions", style: .Default) { (alertAction) -> Void in
             
-          //  print("Directions Pressed")
+            print("Directions Pressed")
             
-            let urlString = "https://www.google.com/maps/place/\(location)"
-            
-            let safeURL = urlString.stringByAddingPercentEncodingWithAllowedCharacters(NSCharacterSet.URLQueryAllowedCharacterSet())
-            
-            let url = NSURL(string: safeURL!)
-            
-            let nsurl = NSURLRequest(URL: url!)
-            
-            self.webView.loadRequest(nsurl)
-            
-            self.webView.backgroundColor = UIColor .redColor()
-            
-            self.view.addSubview(self.webView)
-            
-            let frame = CGRectMake(0, 60, self.view.bounds.width, self.view.bounds.height-60)
-            
-            self.webView.frame = frame
-            
-            self.view.bringSubviewToFront(self.webView)
-
+            if let escapedString = location.stringByAddingPercentEncodingWithAllowedCharacters(.URLHostAllowedCharacterSet()) {
+                
+                let urlString = "https://www.google.com/maps/place/\(escapedString)"
+                
+                if let url = NSURL(string: urlString) {
+                    print("opening url")
+                    UIApplication.sharedApplication().openURL(url)
+                }
+            } else {
+                print("could not escape \(location)")
+            }
         }
         
-        let cancelAction = UIAlertAction(title: "Cancel", style: .Default) { (alertAction) -> Void in
-            
-           // print("CancelledPressed")
-        }
-
         alertController.addAction(directionsAction)
-        
+        let cancelAction = UIAlertAction(title: "Cancel", style: .Default, handler: nil)
         alertController.addAction(cancelAction)
-
         self.presentViewController(alertController, animated: true, completion:nil)
-  
     }
+    
 }

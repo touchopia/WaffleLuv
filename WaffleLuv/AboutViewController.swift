@@ -17,7 +17,7 @@ class AboutViewController: UIViewController, UITableViewDelegate, UITableViewDat
         
         if self.revealViewController() != nil {
             navButton.target = self.revealViewController()
-            navButton.action = "revealToggle:"
+            navButton.action = #selector(SWRevealViewController.revealToggle(_:))
             self.view.addGestureRecognizer(self.revealViewController().panGestureRecognizer())
         }
 
@@ -73,18 +73,18 @@ class AboutViewController: UIViewController, UITableViewDelegate, UITableViewDat
         
         if indexPath.section == 0 {
             
-            return 625
+            return 650
         }
         
         if indexPath.section == 1 {
             
             
-            return 525
+            return 500
         }
         
         if indexPath.section == 2 {
             
-            return 440
+            return 400
             
         }
         

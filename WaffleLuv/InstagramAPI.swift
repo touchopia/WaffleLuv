@@ -10,10 +10,12 @@ import Foundation
 
 class Instagram {
     
-
+    typealias JSONDictionary = [String:AnyObject]
+    typealias JSONArray = [JSONDictionary]
+    
     func fetchInstaPhotos() {
         
-        print("Fetch photos called") 
+        print("Fetch photos called")
         let urlString = "https://www.instagram.com/waffluv/media/"
         
         
@@ -29,24 +31,24 @@ class Instagram {
                 if error != nil {
                     debugPrint("an error occured \(error)")
                 }else {
-
+                    
                     if let data = data {
                         
                         do {
                             
                             if let dictionary = try NSJSONSerialization.JSONObjectWithData(data, options: .AllowFragments) as? JSONDictionary {
-                
+                                
                                 if let items = dictionary["items"] as? JSONArray {
                                     
                                     
                                     for item in items {
-
+                                        
                                         if let images = item["images"] as? JSONDictionary{
                                             
                                             
                                             if let lowRes = images["low_resolution"] as? JSONDictionary {
                                                 
-
+                                                
                                                 let photo = InstaPhoto.init(dict: lowRes)
                                                 
                                                 DataStore.sharedInstance.instaPhotos.append(photo)
@@ -80,5 +82,5 @@ class Instagram {
         }
         
     }
-
+    
 }

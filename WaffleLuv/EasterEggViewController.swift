@@ -18,7 +18,7 @@ class EasterEggViewController: UIViewController, UICollisionBehaviorDelegate {
     
     var maxY : CGFloat = 500
     
-    let boxSize : CGFloat = 30.0
+    let boxSize : CGFloat = 35.0
 
     let startPoint = CGPointMake(50, 50)
     
@@ -134,8 +134,6 @@ class EasterEggViewController: UIViewController, UICollisionBehaviorDelegate {
         
         repeat {
 
-            // Generates random location for box to appear
-            
             let guessX = CGFloat(arc4random()) % maxX
             
             let guessY = CGFloat(arc4random()) % maxY

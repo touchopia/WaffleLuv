@@ -8,126 +8,72 @@
 
 import Foundation
 
-typealias JSONDictionary = [String:AnyObject]
-typealias JSONArray = [JSONDictionary]
-
 class CalendarAPI {
     
-    let calendarIDs = ["37acdbblsoobtn4e8pdiiou0og","7le3v0i298umv73s6utg6mlgns","vedof0bnd56tpg88ts26ri8tfs", "ljtm924o1d2i1rsvcasfifa8v0", "cv3ksjlpccbinsdskl03sje1uk","a4qf72ifpil5ubisui5krs6o6s"] 
+    typealias JSONDictionary = [String:AnyObject]
     
-    var events = [CalendarEvent]()
+    typealias JSONArray = [JSONDictionary]
     
-    var currentEvents = [CalendarEvent]()
+    let calendarIDs = [["37acdbblsoobtn4e8pdiiou0og":"Utah County Truck",
+        "7le3v0i298umv73s6utg6mlgns":"Salt Lake County Truck #2",
+        "vedof0bnd56tpg88ts26ri8tfs":"Salt Lake County Truck #1",
+        "ljtm924o1d2i1rsvcasfifa8v0":"Davis / Weber Truck",
+        "cv3ksjlpccbinsdskl03sje1uk":"St. George Truck",
+        "a4qf72ifpil5ubisui5krs6o6s":"Arizona Truck"]]
     
-    var currentDate = NSDate()
+    var eventsArray = [CalendarEvent]()
     
-    var dateFormatter = NSDateFormatter()
-
+    let dateFormatter = NSDateFormatter()
     
-    func checkForCurrentEvents(item: CalendarEvent)  {
- 
-            let endTime = item.endDate
-            
-            let end = endTime.timeIntervalSince1970
-
-            let today = currentDate.timeIntervalSince1970
-        
-            let startTime = item.startDate
-            
-            let start = startTime.timeIntervalSince1970
-            
-
-            if start <= today {
-
-                if end >= today {
-
-                    if item.location != "" {
-                    
-
-                       // print(item.endDate)
-                    
-                   // print("item appended")
-                        
-                        
-                        DataStore.sharedInstance.currentEvents.append(item)
-                        
-                        DataStore.sharedInstance.numberOFEvents()
-                        
-                        DataStore.sharedInstance.geocodeLocations()
-                    }
-                    
-                }
-                
-            }
-            
+    func fetchCalendars() {
+        for calendar in calendarIDs {
+            fetchCalendar(calendar)
+        }
     }
     
-    
-    func fetchCalendar() {
+    func fetchCalendar(calendar: [String:String]) {
         
-        print("Fetch calendar called") 
-        
-        for id in calendarIDs {
-        
-        let urlString = "https://www.googleapis.com/calendar/v3/calendars/\(id)@group.calendar.google.com/events?key=AIzaSyA6hNF8nwtP3iCRa72yFJIhWbjWUfw0rvw&maxResults=9999"
-        
-        if let url = NSURL(string: urlString)
-        {
+        for (idString, truckName) in calendar {
+            print("searching for \(truckName)")
             
-            let session = NSURLSession.sharedSession()
+            let urlString = "https://www.googleapis.com/calendar/v3/calendars/\(idString)@group.calendar.google.com/events?key=AIzaSyA6hNF8nwtP3iCRa72yFJIhWbjWUfw0rvw&maxResults=9999"
             
-            let task = session.dataTaskWithURL(url, completionHandler: {
+            if let url = NSURL(string: urlString) {
+                let session = NSURLSession.sharedSession()
                 
-                (data, response, error) -> () in
-                
-                if error != nil {
-                    debugPrint("an error occured \(error)")
-                }else {
-
-                    if let data = data {
-                        
-                        do {
-                            
-                            if let dictionary = try NSJSONSerialization.JSONObjectWithData(data, options: .AllowFragments) as? JSONDictionary {
-                                
-                                if let items = dictionary["items"] as? JSONArray {
+                let task = session.dataTaskWithURL(url, completionHandler: {
+                    (data, response, error) -> () in
+                    
+                    if error != nil {
+                        print("an error occured \(error)")
+                    } else {
+                        if let data = data {
+                            do {
+                                if let dictionary = try NSJSONSerialization.JSONObjectWithData(data, options: .AllowFragments) as? JSONDictionary {
                                     
-                                    for item in items {
-                                        
-                                        let event = CalendarEvent(dict: item)
-                                        
-                                        self.checkForCurrentEvents(event)
-                                        
-                                        // Pass each individual event into the checkForCurrentEvents and check to see if it meets the requirements?
+                                    if let items = dictionary["items"] as? JSONArray {
+                                        for item in items {
+                                            let event = CalendarEvent(dict: item)
+                                            event.truckName = truckName
+                                            //print(event.location)
+                                            //print(event.startDate)
+                                            DataStore.sharedInstance.addEvent(event)
+                                        }
+                                    } else {
+                                        //print("cant parse dictionary")
                                     }
                                 }
-                                
-                                
-                            } else {
-                                debugPrint("cant parse dictionary")
+                            } catch {
+                                //print("cant parse JSON")
                             }
-                            
-                        } catch {
-                            
-                            debugPrint("cant parse JSON")
-                            
                         }
                     }
-                }
+                })
+                task.resume()
                 
-            })
-            
-            task.resume()
-            
-            
-            
-        } else {
-            debugPrint("cant print data")
+            } else {
+                //print("cant print data")
+            }
         }
-            
-        }
-        
     }
-    
-    
 }

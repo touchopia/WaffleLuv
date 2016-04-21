@@ -22,9 +22,7 @@ class NaviTableViewController: UITableViewController {
         super.viewDidLoad()
         
         instaApi.fetchInstaPhotos()
-        
-      //  calendarApi.fetchCalendar()
-        
+ 
         let reachability: Reachability
         do {
             reachability = try Reachability.reachabilityForInternetConnection()
